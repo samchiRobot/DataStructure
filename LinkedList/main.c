@@ -1,12 +1,10 @@
-
-
 #include <stdio.h>
 #include "LinkedList.h"
 #include "menu.h"
 
 int main(void)
 {
-	const char* menuList[] = { "Input", "Print", "Search", "Delete", "Sort", "Quit" };
+	const char* menuList[] = { "Input(Front)", "Input(Backward)", "Print", "Search", "Delete", "Sort", "Quit" };
 	int num = 0;
 	int cnt = 0;
 	
@@ -27,12 +25,14 @@ int main(void)
 	while (1)
 	{
 		num = menu(menuList, cnt);
-		if (num == cnt)
+		if(num == cnt)
 			break;
-	switch (num)
+	
+		switch(num)
 		{
 		case 1:	mInput(&list);		break;
 		case 2: DisplayList(&list);	break;
+		// TODO
 		default:	break;
 		}
 	}

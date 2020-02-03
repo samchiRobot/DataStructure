@@ -24,6 +24,7 @@ void mInput(list_t* lp)
 	AddFirst(lp, temp);
 }
 
+// TODO
 void mOutput(list_t* lp);
 void mSearch(list_t* lp);
 void mDelete(list_t* lp);

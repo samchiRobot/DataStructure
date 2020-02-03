@@ -119,6 +119,7 @@ void DisplayList(list_t* lp)
 	printf("\n");
 }
 
+// TODO
 /* Search for node that match the presented data */
 node_t* SearchNode(list_t* lp, int data);
 
