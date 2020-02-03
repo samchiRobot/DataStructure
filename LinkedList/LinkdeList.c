@@ -40,15 +40,82 @@ bool_t CreateList(list_t* lp)
 	return TRUE;
 }
 
-// TODO
+
 /* Add node after the head node */
-bool_t AddFirst(list_t* lp, int data);
+bool_t AddFirst(list_t* lp, int data)
+{
+	/* NULL check */
+	if (lp == NULL)
+		return FALSE;
+
+	/* Create new node */
+	node_t* np = NULL;
+	np = malloc(sizeof(node_t));
+	if (np == NULL)
+		return FALSE;
+
+	/* Apply data to new node */
+	np->data = data;
+
+	/* Set next pointer */
+	np->next = lp->head->next;
+	lp->head->next = np;
+
+	/* Increase list size */
+	++lp->size;
+
+	return TRUE;
+}
 
 /* Add node before the tail node */
-bool_t AddLast(list_t* lp, int data);
+bool_t AddLast(list_t* lp, int data)
+{
+	/* NULL check */
+	if (lp == NULL)
+		return FALSE;
+
+	/* Create new node */
+	node_t* np = NULL;
+	np = malloc(sizeof(node_t));
+	if (np == NULL)
+		return FALSE;
+
+	/* Apply data to new node */
+	np->data = data;
+
+	/* Search a node just before the tail node */
+	node_t* tp = lp->head;
+	while (tp->next != lp->tail)
+		tp = tp->next;
+
+	/* Set next pointer */
+	tp->next = np;
+	np->next = lp->tail;
+
+	/* Increase list size */
+	++lp->size;
+
+	return TRUE;
+}
 
 /* Print all data in the list*/
-void DisplayList(list_t* lp);
+void DisplayList(list_t* lp)
+{
+	/* NULL check */
+	if (lp == NULL)
+		return;
+
+	/* Set first node */
+	node_t* tp = lp->head->next;
+
+	/* Print data */
+	while (tp != lp->tail)
+	{
+		printf("%d ", tp->data);
+		tp = tp->next;
+	}
+	printf("\n");
+}
 
 /* Search for node that match the presented data */
 node_t* SearchNode(list_t* lp, int data);
