@@ -16,12 +16,20 @@ int menu(const char** menuList, int cnt)
 }
 
 
-void mInput(list_t* lp)
+void mInputFirst(list_t* lp)
 {
 	int temp = 0;
 	printf("Set Input Data : ");
 	scanf("%d", &temp);
 	AddFirst(lp, temp);
+}
+
+void mInputLast(list_t* lp)
+{
+	int temp = 0;
+	printf("Set Input Data : ");
+	scanf("%d", &temp);
+	AddLast(lp, temp);
 }
 
 // TODO

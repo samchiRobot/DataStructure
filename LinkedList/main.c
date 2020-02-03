@@ -30,8 +30,9 @@ int main(void)
 	
 		switch(num)
 		{
-		case 1:	mInput(&list);		break;
-		case 2: DisplayList(&list);	break;
+		case 1:	mInputFirst(&list);		break;
+		case 2: mInputLast(&list);		break;
+		case 3: DisplayList(&list);		break;
 		// TODO
 		default:	break;
 		}
