@@ -16,6 +16,7 @@ bool_t CreateList(list_t* lp)
 		return FALSE;
 	head->data = 0;
 	head->next = NULL;
+	lp->head = head;
 
 	/* Create Tail Node */
 	node_t* tail = NULL;
@@ -27,6 +28,7 @@ bool_t CreateList(list_t* lp)
 	}
 	tail->data = 0;
 	tail->next = NULL;
+	lp->tail = tail;
 
 	/* Connect between head node and tail node */
 	head->next = tail;
