@@ -33,6 +33,10 @@ int main(void)
 		case 1:	mInputFirst(&list);		break;
 		case 2: mInputLast(&list);		break;
 		case 3: DisplayList(&list);		break;
+		case 4: mSearch(&list);			break;
+		case 5: mDelete(&list);			break;
+		case 6: break;
+		case 7: break;
 		// TODO
 		default:	break;
 		}

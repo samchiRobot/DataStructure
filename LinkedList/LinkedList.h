@@ -19,8 +19,9 @@ node_t* SearchNode(list_t* lp, int data);
 /* Delete the data node */
 bool_t RemoveNode(list_t* lp, int data);
 
-/* Sort node - Ascending order*/
-void SortList(list_t* lp);
+/* Sort node (Bubble sort)*/
+/* mode : 0 - Ascending order, 1 - Descending order */
+void SortList(list_t* lp, int mode);
 
 /* Delete all of the nodes*/
 void DestroyList(list_t* lp);

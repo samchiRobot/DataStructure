@@ -119,15 +119,71 @@ void DisplayList(list_t* lp)
 	printf("\n");
 }
 
-// TODO
 /* Search for node that match the presented data */
-node_t* SearchNode(list_t* lp, int data);
+node_t* SearchNode(list_t* lp, int data)
+{
+	/* NULL check */
+	if (lp == NULL)
+		return NULL;
+	
+	/* Select first node */
+	node_t* np = lp->head->next;
+
+	/* Find node up to tail node */
+	while (np->data != data)
+	{
+		if (np->data == data)
+			return np;
+		if (np == lp->tail)
+			return NULL;
+		np = np->next;
+	}
+}
 
 /* Delete the data node */
-bool_t RemoveNode(list_t* lp, int data);
+bool_t RemoveNode(list_t* lp, int data)
+{
+	/* NULL check */
+	if (lp == NULL)
+		return FALSE;
 
-/* Sort node - Ascending order*/
-void SortList(list_t* lp);
+	/* Search node pointer to delete */
+	node_t *dp = SearchNode(lp, data);
+	if (dp == NULL)
+		return FALSE;
+
+	/* Search node pointer before the node to delete*/
+	node_t* np = lp->head;
+	while (np->next != dp)
+		np = np->next;
+
+	/* Connect np and dp->next */
+	np->next = dp->next;
+
+	/* Delete the node and decrease the lp->size*/
+	free(dp);
+	--lp->size;
+	return TRUE;
+}
+
+/* Sort node (Bubble sort)*/
+/* mode : 0 - Ascending order, 1 - Descending order */
+void SortList(list_t* lp, int mode)
+{
+	/* Null check */
+	if (lp == NULL)
+		return;
+	node_t* np = lp->head;
+	node_t* tp = np->next;
+	int temp = 0;
+	for (int i = 0; i < lp->size - 1; i++)
+	{
+		for (int j = 0; j < lp->size - i - 1; j++)
+		{
+			// TODO
+		}
+	}
+}
 
 /* Delete all of the nodes*/
 void DestroyList(list_t* lp);
