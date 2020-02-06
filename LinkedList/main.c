@@ -10,6 +10,7 @@ int main(void)
 	bool_t termFlag = FALSE;
 
 	list_t list;
+	list_t* lp = &list;
 	bool_t bres;
 
 	cnt = sizeof(menuList) / sizeof(menuList[0]);
@@ -31,12 +32,12 @@ int main(void)
 
 		switch(num)
 		{
-		case 1:	mInputFirst(&list);		break;
-		case 2: mInputLast(&list);		break;
-		case 3: DisplayList(&list);		break;
-		case 4: mSearch(&list);			break;
-		case 5: mDelete(&list);			break;
-		case 6: mSort(&list);			break;
+		case 1:	mInputFirst(lp);		break;
+		case 2: mInputLast(lp);		break;
+		case 3: DisplayList(lp);		break;
+		case 4: mSearch(lp);			break;
+		case 5: mDelete(lp);			break;
+		case 6: mSort(lp);			break;
 		default: termFlag = TRUE;		break;
 		}
 	}
