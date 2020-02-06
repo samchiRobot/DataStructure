@@ -24,6 +24,8 @@ void mInputFirst(list_t* lp)
 	printf("Set Input Data : ");
 	scanf("%d", &temp);
 	AddFirst(lp, temp);
+	printf("Result: ");
+	DisplayList(lp);
 }
 
 void mInputLast(list_t* lp)
@@ -32,10 +34,9 @@ void mInputLast(list_t* lp)
 	printf("Set Input Data : ");
 	scanf("%d", &temp);
 	AddLast(lp, temp);
+	printf("Result: ");
+	DisplayList(lp);
 }
-
-// TODO
-void mOutput(list_t* lp);
 
 void mSearch(list_t* lp)
 {
@@ -59,6 +60,30 @@ void mDelete(list_t* lp)
 		printf("Delete success\n");
 	else
 		printf("Delete failed!\n");
+	printf("Result: ");
+	DisplayList(lp);
 }
 
-void mSort(list_t* lp);
+void mSort(list_t* lp)
+{
+	int mode = 0;
+	printf("Select order (0: Ascending(Default), 1: Descending): ");
+	scanf("%d", &mode);
+	if (mode != 1)
+		mode = 0;
+	SortList(lp, mode);
+	if (mode == 0)
+		printf("Ascending order complete!\n");
+	else
+		printf("Descending order complete!\n");
+	printf("Result: ");
+	DisplayList(lp);
+}
+
+void mTerminate(list_t* lp)
+{
+	printf("Terminating....");
+	DestroyList(lp);
+	printf("Destroy list complete!\n");
+	exit(0);
+}

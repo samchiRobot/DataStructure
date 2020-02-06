@@ -117,6 +117,7 @@ void DisplayList(list_t* lp)
 		tp = tp->next;
 	}
 	printf("\n");
+	printf("List size : %d\n", lp->size);
 }
 
 /* Search for node that match the presented data */
@@ -173,17 +174,77 @@ void SortList(list_t* lp, int mode)
 	/* Null check */
 	if (lp == NULL)
 		return;
-	node_t* np = lp->head;
-	node_t* tp = np->next;
+	node_t* np = NULL;
+	node_t* tp = NULL;
 	int temp = 0;
-	for (int i = 0; i < lp->size - 1; i++)
-	{
-		for (int j = 0; j < lp->size - i - 1; j++)
+
+	if(mode==0)  // Ascending order
+	{ 
+		for (int i = 0; i < lp->size - 1; ++i)
 		{
-			// TODO
+			np = lp->head->next;
+			tp = np->next;
+
+			for (int j = 0; j < lp->size - i - 1; ++j)
+			{
+				if (np->data > tp->data)
+				{
+					temp = np->data;
+					np->data = tp->data;
+					tp->data = temp;
+				}
+				np = tp;
+				tp = tp->next;
+			}
+		}
+	}
+	else // Descending order
+	{
+		for (int i = 0; i < lp->size - 1; i++)
+		{
+			np = lp->head->next;
+			tp = np->next;
+
+			for (int j = 0; j < lp->size - i - 1; j++)
+			{
+				if (np->data < tp->data)
+				{
+					temp = np->data;
+					np->data = tp->data;
+					tp->data = temp;
+				}
+				np = tp;
+				tp = tp->next;
+			}
 		}
 	}
 }
 
-/* Delete all of the nodes*/
-void DestroyList(list_t* lp);
+/* Delete all nodes of list*/
+void DestroyList(list_t* lp)
+{
+	/* Null check */
+	if (lp == NULL)
+		return;
+	/* Select first data node */
+	node_t* np = lp->head->next;
+	node_t* tp = np->next;
+
+	/* Delete until last data node*/
+	while (np != lp->tail)
+	{
+		RemoveNode(lp, np->data);
+		np = tp;
+		tp = tp->next;
+	}
+
+	/* Delete head node */
+	free(lp->head);
+	/* Delete tail node */
+	free(lp->tail);
+	/* Set to NULL */
+	lp->head = NULL;
+	lp->tail = NULL;
+
+	return;
+}
