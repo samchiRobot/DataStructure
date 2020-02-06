@@ -25,10 +25,10 @@ int main(void)
 
 	while (1)
 	{
-		num = menu(menuList, cnt);
-		if(termFlag)
+		if (termFlag)
 			break;
-	
+		num = menu(menuList, cnt);
+
 		switch(num)
 		{
 		case 1:	mInputFirst(&list);		break;

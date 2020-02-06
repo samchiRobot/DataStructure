@@ -82,7 +82,7 @@ void mSort(list_t* lp)
 
 void mTerminate(list_t* lp)
 {
-	printf("Terminating....");
+	printf("Terminating...\n");
 	DestroyList(lp);
 	printf("Destroy list complete!\n");
 	exit(0);

@@ -220,7 +220,7 @@ void SortList(list_t* lp, int mode)
 	}
 }
 
-/* Delete all nodes of list*/
+/* Delete all nodes of the list*/
 void DestroyList(list_t* lp)
 {
 	/* Null check */
@@ -234,10 +234,12 @@ void DestroyList(list_t* lp)
 	while (np != lp->tail)
 	{
 		RemoveNode(lp, np->data);
+		printf(".");
 		np = tp;
 		tp = tp->next;
 	}
-
+	printf("\n");
+	
 	/* Delete head node */
 	free(lp->head);
 	/* Delete tail node */
