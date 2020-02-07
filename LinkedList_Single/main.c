@@ -4,7 +4,7 @@
 
 int main(void)
 {
-	const char* menuList[] = { "Input(Front)", "Input(Backward)", "Print", "Search", "Delete", "Sort", "Quit" };
+	const char* menuList[] = { "Input(Front)", "Input(Backward)", "Print", "Search", "Delete", "Sort" };
 	int num = 0;
 	int cnt = 0;
 	bool_t termFlag = FALSE;
