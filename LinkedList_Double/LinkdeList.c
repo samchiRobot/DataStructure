@@ -15,6 +15,7 @@ bool_t CreateList(list_t* lp)
 	if (head == NULL)
 		return FALSE;
 	head->data = 0;
+	head->prev = head;	// towards itself
 	head->next = NULL;
 	lp->head = head;
 
@@ -32,10 +33,11 @@ bool_t CreateList(list_t* lp)
 
 	/* Connect between head node and tail node */
 	head->next = tail;
+	tail->prev = head;
 
 	/* Set the tail node's next point to itself */
 	tail->next = tail;
-
+	
 	/* Set linked list size to zero */
 	lp->size = 0;
 
@@ -63,6 +65,10 @@ bool_t AddFirst(list_t* lp, int data)
 	np->next = lp->head->next;
 	lp->head->next = np;
 
+	/* Set prev pointer */
+	np->prev = lp->head;
+	np->next->prev = np;
+
 	/* Increase list size */
 	++lp->size;
 
@@ -85,14 +91,13 @@ bool_t AddLast(list_t* lp, int data)
 	/* Apply data to new node */
 	np->data = data;
 
-	/* Search a node just before the tail node */
-	node_t* tp = lp->head;
-	while (tp->next != lp->tail)
-		tp = tp->next;
+	/* Connect np to just before the tail node */
+	np->prev = lp->tail->prev;
+	np->prev->next = np;
 
-	/* Set next pointer */
-	tp->next = np;
+	/* Connect to tail */
 	np->next = lp->tail;
+	lp->tail->prev = np;
 
 	/* Increase list size */
 	++lp->size;
@@ -153,13 +158,9 @@ bool_t RemoveNode(list_t* lp, int data)
 	if (dp == NULL)
 		return FALSE;
 
-	/* Search node pointer before the node to delete*/
-	node_t* np = lp->head;
-	while (np->next != dp)
-		np = np->next;
-
-	/* Connect np and dp->next */
-	np->next = dp->next;
+	/* Connect nodes around the dp */
+	dp->prev->next = dp->next;
+	dp->next->prev = dp->prev;
 
 	/* Delete the node and decrease the lp->size*/
 	free(dp);
