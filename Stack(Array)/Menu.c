@@ -52,5 +52,7 @@ void mPop(stack_t* sp)
 
 void mTerminate(stack_t* sp)
 {
-
+	printf("Terminating...");
+	DestroyStack(sp);
+	return;
 }
