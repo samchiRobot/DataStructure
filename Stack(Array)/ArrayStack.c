@@ -9,15 +9,10 @@ bool_t CreateStack(stack_t* sp, int size)
 	if (sp == NULL)
 		return FALSE;
 
-	/* Stack Memory Allocation */
-	sp = (stack_t *)malloc(sizeof(stack_t));
-	if (sp == NULL)
-		return FALSE;
-
 	/* Initialize */
-	sp->size = 0;
+	sp->size = size;
 	sp->top = 0;
-	sp->stack = (int*)malloc(sizeof(int) * size);
+	sp->stack = calloc(sizeof(int), sp->size);
 	if (sp->stack == NULL)
 		return FALSE;
 
@@ -25,16 +20,79 @@ bool_t CreateStack(stack_t* sp, int size)
 }
 
 /* Check Stack State */
-bool_t isStackFull(stack_t* sp);
-bool_t isStackEmpty(stack_t* sp);
+bool_t isStackFull(stack_t* sp)
+{
+	/* NULL check */
+	if (sp == NULL)
+		return FALSE;
+	if (sp->top == sp->size)
+		return TRUE;
+	else
+		return FALSE;
+}
+
+bool_t isStackEmpty(stack_t* sp)
+{
+	/* NULL check */
+	if (sp == NULL)
+		return FALSE;
+
+	if (sp->top == 0)
+		return TRUE;
+	else
+		return FALSE;
+}
 
 /* Push/Pop Data */
-bool_t Push(stack_t* sp, int PushData);
-bool_t Pop(stack_t* sp, int* PopData);
+bool_t Push(stack_t* sp, int PushData)
+{
+	/* NULL check */
+	if (sp == NULL)
+		return FALSE;
+
+	/* Check sp->top */
+	if (isStackFull(sp))
+		return FALSE;
+	sp->stack[sp->top++] = PushData;
+	return TRUE;
+}
+
+bool_t Pop(stack_t* sp, int* PopData)
+{
+	/* NULL check */
+	if (sp == NULL)
+		return FALSE;
+
+	/* Check sp->top */
+	if (isStackEmpty(sp))
+		return FALSE;
+	sp->top--;
+	*PopData = sp->stack[sp->top];
+	return TRUE;
+}
 
 /* Print all data in stack */
-void PrintStack(const stack_t* sp, void(*print)(int));
-void PrintInt(int data);
+void PrintStack(const stack_t* sp)
+{
+	/* NULL check */
+	if (sp == NULL)
+		return FALSE;
+	for (int i = sp->top - 1; i >= 0; i--)
+	{
+		printf("%d ", sp->stack[i]);
+	}
+	printf("\n");
+}
 
 /* Delete all of the data */
-void DestroyStack(stack_t* sp);
+void DestroyStack(stack_t* sp)
+{
+	/* NULL check */
+	if (sp == NULL)
+		return;
+	free(sp->stack);
+	sp->stack = NULL;
+	sp->size = 0;
+	sp->top = 0;
+	return;
+}

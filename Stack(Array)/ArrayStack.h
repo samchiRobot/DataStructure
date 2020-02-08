@@ -13,8 +13,7 @@ bool_t Push(stack_t* sp, int PushData);
 bool_t Pop(stack_t* sp, int* PopData);
 
 /* Print all data in stack */
-void PrintStack(const stack_t* sp, void(*print)(int));
-void PrintInt(int data);
+void PrintStack(const stack_t* sp);
 
 /* Delete all of the data */
 void DestroyStack(stack_t* sp);

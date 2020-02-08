@@ -4,8 +4,19 @@
 int main(void)
 {
 	bool_t checker = FALSE;
-	stack_t stack;
-	checker = CreateStack(&stack, 10);
+	stack_t s;
+	int test = 0;
+	checker = CreateStack(&s, 10);
+
+	checker = Push(&s, 10);
+	checker = Push(&s, 20);
+	checker = Push(&s, 30);
+
+	Pop(&s, &test);
+	printf("%d\n", test);
+
+	PrintStack(&s);
+
 	if (checker)
 		printf("Success\n");
 	else
