@@ -77,6 +77,7 @@ void PrintStack(const stack_t* sp)
 	/* NULL check */
 	if (sp == NULL)
 		return FALSE;
+	printf("Stack :");
 	for (int i = sp->top - 1; i >= 0; i--)
 	{
 		printf("%d ", sp->stack[i]);

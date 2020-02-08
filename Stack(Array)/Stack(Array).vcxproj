@@ -140,10 +140,12 @@
   <ItemGroup>
     <ClCompile Include="ArrayStack.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Menu.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="DataType.h" />
+    <ClInclude Include="Menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

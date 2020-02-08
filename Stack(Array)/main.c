@@ -1,28 +1,48 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include "ArrayStack.h"
+#include "Menu.h"
 
 int main(void)
 {
 	bool_t checker = FALSE;
+	bool_t termFlag = FALSE;
 	stack_t s;
-	int test = 0;
-	checker = CreateStack(&s, 10);
+	const stack_t* sp = &s;
+	const char* menuList[] = {"Push", "Pop", "Print"};
+	const int menuCnt = sizeof(menuList) / sizeof(menuList[0]);
 
-	checker = Push(&s, 10);
-	checker = Push(&s, 20);
-	checker = Push(&s, 30);
+	int menuNum = 0;
+	int stackSize = 0;
 
-	Pop(&s, &test);
-	printf("%d\n", test);
+	printf("Stack Size : ");
+	scanf("%d", &stackSize);
 
-	PrintStack(&s);
+	checker = CreateStack(sp, stackSize);
 
 	if (checker)
-		printf("Success\n");
+		printf("Create Stack Success\n");
 	else
 	{
-		printf("Fail\n");
+		printf("Create Stack Fail!\n");
 		return -1;
 	}
+
+	while (1)
+	{
+		if (termFlag)
+			break;
+		menuNum = menu(menuList, menuCnt);
+		switch (menuNum)
+		{
+		case 1:		mPush(sp);			break;
+		case 2:		mPop(sp);			break;
+		case 3:		PrintStack(sp);		break;
+		default:	termFlag = TRUE;	break;
+		}
+	}
+	mTerminate(sp);
+
 	return 0;
 }
