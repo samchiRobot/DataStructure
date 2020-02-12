@@ -1,4 +1,5 @@
 #pragma once
+#define RECURSIVE
 
 typedef struct _node
 {

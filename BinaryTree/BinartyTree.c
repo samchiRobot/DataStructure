@@ -24,7 +24,6 @@ node_t* MakeNode(int data)
 	return np;
 }
 
-// TODO
 /* Insert New node */
 /* Condition 1 : Left child node < Parent node < Right child node */
 /* Condition 2 : Data is unique */
@@ -66,11 +65,39 @@ node_t* AddNode(tree_t* tp, int data)
 	return np;
 }
 
+#ifdef RECURSIVE
 /* Transverse Function */
-void PreOrderTraverse(node_t* np);	// 전위순회
-void InOrderTraverse(node_t* np);	// 중위순회
-void PostOrderTraverse(node_t* np); // 후위순회
+void PreOrderTraverse(node_t* np)	// 전위순회
+{
+	if (np == NULL)
+		return;
+	printf("%d ", np->data);
+	PreOrderTraverse(np->left);
+	PreOrderTraverse(np->right);
+	return;
+}
 
+// FIXIT
+void InOrderTraverse(node_t* np)	// 중위순회
+{
+	if (np == NULL)
+		return;
+	InOrderTraverse(np->left);
+	printf("%d ", np->data);
+	InOrderTraverse(np->right);
+	return;
+}
+
+void PostOrderTraverse(node_t* np) // 후위순회
+{
+	if (np == NULL)
+		return;
+	PostOrderTraverse(np->left);
+	PostOrderTraverse(np->right);
+	printf("%d ", np->data);
+	return;
+}
+#endif
 /* Search Data */
 node_t* SearchNode(tree_t* tp, int data);
 
