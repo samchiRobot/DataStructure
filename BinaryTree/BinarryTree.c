@@ -77,7 +77,6 @@ void PreOrderTraverse(node_t* np)	// 전위순회
 	return;
 }
 
-// FIXIT
 void InOrderTraverse(node_t* np)	// 중위순회
 {
 	if (np == NULL)
@@ -97,9 +96,48 @@ void PostOrderTraverse(node_t* np) // 후위순회
 	printf("%d ", np->data);
 	return;
 }
+#else
+// TODO
 #endif
-/* Search Data */
-node_t* SearchNode(tree_t* tp, int data);
 
-void DestroyTree(tree_t* tp);
+/* Search Data */
+node_t* SearchNode(tree_t* tp, int data)
+{
+	// Null check
+	if (tp == NULL)
+		return NULL;
+	node_t* np = tp->root;
+
+	while (np != NULL)
+	{
+		if (np->data == data)
+			return np;
+		else if (np->data < data)
+			np = np->right;
+		else
+			np = np->left;
+	}
+	return NULL;
+}
+
+// TODO
+node_t* SearchParent(tree_t* tp, int data)
+{
+
+}
+
+node_t* DeleteNode(tree_t* tp, int data)
+{
+	// Null check
+	if (tp == NULL)
+		return NULL;
+	node_t* dp = SearchNode(tp, data);
+	if (dp == NULL)
+		return NULL;
+}
+
+void DestroyTree(tree_t* tp)
+{
+
+}
 void PostOrderDelete(node_t* np);

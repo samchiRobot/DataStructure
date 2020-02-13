@@ -139,9 +139,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BinaryTree.h" />
+    <ClInclude Include="menu.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BinartyTree.c" />
+    <ClCompile Include="BinarryTree.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

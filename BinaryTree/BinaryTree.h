@@ -30,6 +30,8 @@ void PostOrderTraverse(node_t* np); // 후위순회
 
 /* Search Data */
 node_t* SearchNode(tree_t* tp, int data);
+node_t* SearchParent(tree_t* tp, int data);
 
+node_t* DeleteNode(tree_t* tp, int data);
 void DestroyTree(tree_t* tp);
 void PostOrderDelete(node_t* np);
