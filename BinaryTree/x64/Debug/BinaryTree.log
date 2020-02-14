@@ -8,4 +8,4 @@ C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\main.c(14,12): w
 C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\main.c(15,12): warning C4090: '함수': 'const' 한정자가 서로 다릅니다.
 C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\main.c(16,12): warning C4090: '함수': 'const' 한정자가 서로 다릅니다.
 C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\main.c(18,30): warning C4090: '함수': 'const' 한정자가 서로 다릅니다.
-  BinaryTree.vcxproj -> C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\Debug\BinaryTree.exe
+  BinaryTree.vcxproj -> C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\x64\Debug\BinaryTree.exe

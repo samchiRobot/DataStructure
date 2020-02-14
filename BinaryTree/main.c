@@ -13,8 +13,12 @@ int main(void)
 	AddNode(tp, 1);
 	AddNode(tp, 4);
 	AddNode(tp, 5);
+	AddNode(tp, 6);
 
-	InOrderTraverse(tp->root);
+	node_t* np = SearchParent(tp,7);
+	if (np == NULL)
+		return -1;
+	printf("%d", np->data);
 
 	return 0;
 }

@@ -123,7 +123,26 @@ node_t* SearchNode(tree_t* tp, int data)
 // TODO
 node_t* SearchParent(tree_t* tp, int data)
 {
+	// Null check
+	if (tp == NULL)
+		return NULL;
 
+	node_t* np = SearchNode(tp, data);
+	node_t* pp = tp->root;
+
+	while (pp != NULL)
+	{
+		if ((pp->left == np) || (pp->right == np))
+			return pp;
+		else
+		{
+			if (pp->data < data)
+				pp = pp->right;
+			else
+				pp = pp->left;
+		}
+	}
+	return NULL;
 }
 
 node_t* DeleteNode(tree_t* tp, int data)
@@ -140,4 +159,6 @@ void DestroyTree(tree_t* tp)
 {
 
 }
+
+
 void PostOrderDelete(node_t* np);
