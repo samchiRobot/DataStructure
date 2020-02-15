@@ -34,6 +34,5 @@ node_t* SearchParent(tree_t* tp, int data);
 
 node_t* DeleteNode(tree_t* tp, int data);
 void DestroyTree(tree_t* tp);
-void PostOrderDelete(node_t* np);
 
 void SwapData(int a, int b);

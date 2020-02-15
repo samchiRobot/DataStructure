@@ -96,6 +96,18 @@ void PostOrderTraverse(node_t* np) // 후위순회
 	printf("%d ", np->data);
 	return;
 }
+
+void PostOrderDelete(node_t* np)
+{
+	if (np == NULL)
+		return;
+	PostOrderDelete(np->left);
+	PostOrderDelete(np->right);
+	free(np);
+	np = NULL;
+	return;
+}
+
 #else
 // TODO
 #endif
@@ -248,8 +260,8 @@ void SwapData(int* a, int* b)
 
 void DestroyTree(tree_t* tp)
 {
-
+	PostOrderDelete(tp->root);
+	tp->root = NULL;
+	tp->nodeCnt = 0;
+	return;
 }
-
-
-void PostOrderDelete(node_t* np);

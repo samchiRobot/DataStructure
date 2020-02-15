@@ -1,2 +1,20 @@
-﻿  main.c
+﻿  BinarryTree.c
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(17,30): warning C4013: 'calloc'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(106,6): warning C4013: 'free'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(194,24): warning C4047: '함수': 'int'의 간접 참조 수준이 'int *'과(와) 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(194,24): warning C4024: 'SwapData': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(194,37): warning C4047: '함수': 'int'의 간접 참조 수준이 'int *'과(와) 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(194,37): warning C4024: 'SwapData': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(210,24): warning C4047: '함수': 'int'의 간접 참조 수준이 'int *'과(와) 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(210,24): warning C4024: 'SwapData': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(210,37): warning C4047: '함수': 'int'의 간접 참조 수준이 'int *'과(와) 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(210,37): warning C4024: 'SwapData': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(241,23): warning C4047: '함수': 'int'의 간접 참조 수준이 'int *'과(와) 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(241,23): warning C4024: 'SwapData': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(241,36): warning C4047: '함수': 'int'의 간접 참조 수준이 'int *'과(와) 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(241,36): warning C4024: 'SwapData': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(253,1): warning C4028: 정식 매개 변수 1이(가) 선언과 다릅니다.
+C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\BinarryTree.c(253,1): warning C4028: 정식 매개 변수 2이(가) 선언과 다릅니다.
+  main.c
+  코드를 생성하고 있습니다...
   BinaryTree.vcxproj -> C:\Users\user\source\repos\samchiRobot\DataStructure\BinaryTree\Debug\BinaryTree.exe
