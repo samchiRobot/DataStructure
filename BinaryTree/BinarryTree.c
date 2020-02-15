@@ -40,6 +40,7 @@ node_t* AddNode(tree_t* tp, int data)
 	if (tp->root == NULL)
 	{
 		tp->root = np;
+		++tp->nodeCnt;
 		return tp->root;
 	}
 
@@ -62,11 +63,12 @@ node_t* AddNode(tree_t* tp, int data)
 	else
 		return NULL;
 
+	++tp->nodeCnt;
 	return np;
 }
 
 #ifdef RECURSIVE
-/* Transverse Function */
+/* Traverse Function */
 void PreOrderTraverse(node_t* np)	// 전위순회
 {
 	if (np == NULL)
@@ -103,6 +105,7 @@ void PostOrderDelete(node_t* np)
 		return;
 	PostOrderDelete(np->left);
 	PostOrderDelete(np->right);
+	printf(".", np->data);
 	free(np);
 	np = NULL;
 	return;
@@ -246,6 +249,7 @@ node_t* DeleteNode(tree_t* tp, int data)
 		free(rp);
 		rp = NULL;
 	}
+	--tp->nodeCnt;
 	return pdp;
 }
 
@@ -263,5 +267,6 @@ void DestroyTree(tree_t* tp)
 	PostOrderDelete(tp->root);
 	tp->root = NULL;
 	tp->nodeCnt = 0;
+	printf("\nDestroy OK\n");
 	return;
 }
