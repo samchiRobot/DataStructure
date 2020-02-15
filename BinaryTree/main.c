@@ -4,7 +4,7 @@
 int main(void)
 {
 	tree_t tree;
-	const tree_t* tp = &tree;
+	tree_t* tp = &tree;
 	InitTree(tp);
 
 	AddNode(tp, 7);
@@ -15,10 +15,7 @@ int main(void)
 	AddNode(tp, 5);
 	AddNode(tp, 6);
 
-	node_t* np = SearchParent(tp,7);
-	if (np == NULL)
-		return -1;
-	printf("%d", np->data);
-
+	DeleteNode(tp, 4);
+	PreOrderTraverse(tp->root);
 	return 0;
 }

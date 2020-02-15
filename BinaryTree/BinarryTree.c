@@ -14,7 +14,7 @@ void InitTree(tree_t* tp)
 /* Make New Node */
 node_t* MakeNode(int data)
 {
-	node_t* np = calloc(1, sizeof(node_t));
+	node_t* np = (node_t*)calloc(1, sizeof(node_t));
 	if (np != NULL)
 	{
 		np->data = data;
@@ -120,7 +120,6 @@ node_t* SearchNode(tree_t* tp, int data)
 	return NULL;
 }
 
-// TODO
 node_t* SearchParent(tree_t* tp, int data)
 {
 	// Null check
@@ -145,15 +144,107 @@ node_t* SearchParent(tree_t* tp, int data)
 	return NULL;
 }
 
+
+// FIXIT
 node_t* DeleteNode(tree_t* tp, int data)
 {
 	// Null check
 	if (tp == NULL)
 		return NULL;
+	
+	int temp = 0;
+
+	// Search Delete Node
 	node_t* dp = SearchNode(tp, data);
 	if (dp == NULL)
 		return NULL;
+
+	// Search Parent Node of dp
+	node_t* pdp = SearchNode(tp, data);
+	if (pdp == NULL)
+		return NULL;
+
+	// Set Replace Node of dp, Parent of rp
+	node_t* rp = NULL;
+	node_t* prp = NULL;
+
+	// Case 1 : dp has both child nodes
+	if (dp->left != NULL && dp->right != NULL)
+	{
+		rp = dp->left;
+		if (rp->right == NULL)
+		{
+			prp = SearchParent(tp, rp->data);
+			if (prp == NULL)
+				return NULL;
+
+			// Swap data between dp, rp
+			SwapData(&(rp->data), &(dp->data));
+
+			if (dp->data > prp->data)
+				prp->left = rp->left;
+
+		}
+		else
+		{
+			while (rp->right != NULL)
+			{
+				rp = rp->right;
+			}
+			prp = SearchParent(tp, rp->data);
+			if (prp == NULL)
+				return NULL;
+
+			SwapData(&(rp->data), &(dp->data));
+
+			if (rp->data > prp->data)
+				prp->right = rp->left;
+		}
+		// Delete rp
+		free(rp);
+		rp = NULL;
+	}
+
+
+	// Case 2 : dp doesn't have child node
+	else if (dp->left == NULL && dp->right == NULL)
+	{
+		if (dp->data > pdp->data)
+			pdp->right = NULL;
+		else
+			pdp->left = NULL;
+		free(dp);
+		dp = NULL;
+	}
+
+	// Case 3 : dp has one child node
+	else
+	{
+		if (dp->left != NULL)
+			rp = dp->left;
+		else
+			rp = dp->right;
+		
+		prp = dp;
+		SwapData(&(rp->data), &(dp->data));
+
+		prp->left = rp->left;
+		prp->right = rp->right;
+
+		free(rp);
+		rp = NULL;
+	}
+	return pdp;
 }
+
+void SwapData(int* a, int* b)
+{
+	int temp = 0;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 
 void DestroyTree(tree_t* tp)
 {
