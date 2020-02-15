@@ -160,7 +160,7 @@ node_t* DeleteNode(tree_t* tp, int data)
 		return NULL;
 
 	// Search Parent Node of dp
-	node_t* pdp = SearchNode(tp, data);
+	node_t* pdp = SearchParent(tp, data);
 	if (pdp == NULL)
 		return NULL;
 

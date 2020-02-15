@@ -7,15 +7,14 @@ int main(void)
 	tree_t* tp = &tree;
 	InitTree(tp);
 
-	AddNode(tp, 7);
-	AddNode(tp, 3);
-	AddNode(tp, 8);
-	AddNode(tp, 1);
-	AddNode(tp, 4);
+	AddNode(tp, 20);
+	AddNode(tp, 9);
 	AddNode(tp, 5);
+	AddNode(tp, 1);
+	AddNode(tp, 7);
 	AddNode(tp, 6);
+	AddNode(tp, 10);
+	DeleteNode(tp, 7);
 
-	DeleteNode(tp, 4);
-	PreOrderTraverse(tp->root);
 	return 0;
 }
