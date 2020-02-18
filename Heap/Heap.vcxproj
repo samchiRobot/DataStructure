@@ -140,10 +140,12 @@
   <ItemGroup>
     <ClCompile Include="Heap.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="menu.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataType.h" />
     <ClInclude Include="Heap.h" />
+    <ClInclude Include="menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
