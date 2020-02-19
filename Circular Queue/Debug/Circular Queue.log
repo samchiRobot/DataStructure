@@ -2,5 +2,6 @@
 C:\Users\user\source\repos\samchiRobot\DataStructure\Circular Queue\CircularQueue.c(10,20): warning C4013: 'malloc'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
 C:\Users\user\source\repos\samchiRobot\DataStructure\Circular Queue\CircularQueue.c(10,38): warning C4047: '=': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
 C:\Users\user\source\repos\samchiRobot\DataStructure\Circular Queue\CircularQueue.c(93,6): warning C4013: 'free'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-  LINK : C:\Users\user\source\repos\samchiRobot\DataStructure\Circular Queue\Debug\Circular Queue.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
-  Circular Queue.vcxproj -> C:\Users\user\source\repos\samchiRobot\DataStructure\Circular Queue\Debug\Circular Queue.exe
+  main.c
+  코드를 생성하고 있습니다...
+  Circular Queue.vcxproj -> C:\Users\user\Source\Repos\samchiRobot\DataStructure\Circular Queue\Debug\Circular Queue.exe

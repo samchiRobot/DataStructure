@@ -17,13 +17,20 @@ int main(void)
 
 	printf("Queue size : ");
 	scanf("%d", &qSize);
+
+	if (qSize <= 0)
+	{
+		perror("Invalid Size!\n");
+		return -1;
+	}
+
 	bres = CreateQueue(qp, qSize);
 	if (bres)
 		printf("Create Queue OK, size : %d\n", qp->size);
 	else
 	{
 		perror("Create Queue Error!");
-		return -1;
+		return -2;
 	}
 
 	while (1)
