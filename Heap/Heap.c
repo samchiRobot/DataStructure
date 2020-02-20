@@ -13,6 +13,7 @@ bool_t CreateHeap(heap_t* hp, int size)
 
 	hp->size = size;
 	hp->count = 0;
+	hp->heap[0] = INT_MAX;
 	return TRUE;
 }
 
@@ -42,9 +43,12 @@ bool_t InsertHeap(heap_t* hp, int data)
 	// Null chechk
 	if (hp == NULL)
 		return FALSE;
-		if (isHeapFull(hp))
+
+	if (isHeapFull(hp))
 		return FALSE;
-	hp->heap[hp->count++] = data;
+
+	hp->count++;
+	hp->heap[hp->count] = data;
 	reHeapUp(hp, hp->count);
 	return TRUE;
 }
@@ -66,12 +70,14 @@ bool_t DeleteHeap(heap_t* hp, int* data)
 void reHeapUp(heap_t* hp, int child)
 {
 	int parent = child / 2;
+
 	int temp = 0;
-	while (hp->heap[parent] > hp->heap[child])
+	while (hp->heap[parent] > hp->heap[child] && hp->count > 1)
 	{
 		temp = hp->heap[parent];
 		hp->heap[parent] = hp->heap[child];
 		hp->heap[child] = temp;
+
 		child = child / 2;
 		parent = child / 2;
 	}
@@ -107,9 +113,12 @@ void reHeapDown(heap_t* hp, int parent)
 void PrintHeap(const heap_t* hp)
 {
 	printf("Heap : ");
-	for (int i = 1; i <= hp->count; ++i)
+	if (hp->count >= 1)
 	{
-		printf("%d ", hp->heap[i]);
+		for (int i = 1; i <= hp->count; ++i)
+		{
+			printf("%d ", hp->heap[i]);
+		}
 	}
 	printf("\n Count : %d\n Size : %d\n", hp->count, hp->size);
 	return;
