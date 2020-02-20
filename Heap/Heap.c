@@ -37,7 +37,6 @@ bool_t isHeapFull(heap_t* hp)
 	return FALSE;
 }
 
-
 bool_t InsertHeap(heap_t* hp, int data)
 {
 	// Null chechk
@@ -53,6 +52,7 @@ bool_t InsertHeap(heap_t* hp, int data)
 	return TRUE;
 }
 
+// FIXME
 bool_t DeleteHeap(heap_t* hp, int* data)
 {
 	if (hp == NULL)
@@ -74,6 +74,8 @@ void reHeapUp(heap_t* hp, int child)
 	int temp = 0;
 	while (hp->heap[parent] > hp->heap[child] && hp->count > 1)
 	{
+		if (parent == 0 || child == 0)
+			break;
 		temp = hp->heap[parent];
 		hp->heap[parent] = hp->heap[child];
 		hp->heap[child] = temp;
@@ -84,8 +86,11 @@ void reHeapUp(heap_t* hp, int child)
 	return;
 }
 
+// FIXME
 void reHeapDown(heap_t* hp, int parent)
 {
+	if (parent == 0)
+		return;
 	int cL = 0;
 	int cR = 0;
 	int child = 0;
