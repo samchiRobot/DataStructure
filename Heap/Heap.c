@@ -52,7 +52,6 @@ bool_t InsertHeap(heap_t* hp, int data)
 	return TRUE;
 }
 
-// FIXME
 bool_t DeleteHeap(heap_t* hp, int* data)
 {
 	if (hp == NULL)
@@ -86,7 +85,6 @@ void reHeapUp(heap_t* hp, int child)
 	return;
 }
 
-// FIXME
 void reHeapDown(heap_t* hp, int parent)
 {
 	if (parent == 0)
@@ -101,10 +99,10 @@ void reHeapDown(heap_t* hp, int parent)
 		cR = parent * 2 + 1;
 		if (cR <= hp->count)
 			child = hp->heap[cL] < hp->heap[cR] ? cL : cR;
-		else if (cL < hp->count)
+		else if (cL <= hp->count)
 			child = cL;
 
-		if (hp->heap[child] < hp->heap[parent])
+		if (hp->heap[child] < hp->heap[parent] && hp->count > 1)
 		{
 			temp = hp->heap[parent];
 			hp->heap[parent] = hp->heap[child];
